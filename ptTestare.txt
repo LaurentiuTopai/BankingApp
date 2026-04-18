@@ -1,0 +1,3 @@
+from : RO123BANC
+to : RO456BANC
+amoun : pana la 1000

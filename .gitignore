@@ -1,0 +1,18 @@
+# Java
+**/target/
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Node (Frontend)
+**/node_modules/
+**/build/
+.env
+
+# Docker
+.data/
