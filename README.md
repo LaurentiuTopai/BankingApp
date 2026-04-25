@@ -1,26 +1,29 @@
-# 🏦 Microservices Banking System
+# Microservices Banking System
+# V2 JWT
 
 
-## 🖼️ Preview Aplicație
+
+##  Application Preview
 ![Dashboard Preview](imagine.png)
 
-Un sistem bancar distribuit complet, construit pentru a demonstra arhitectura bazată pe evenimente (Event-Driven Architecture) și comunicarea asincronă.
+## V2 JWT Integration and UI modifies
+![Dashboard Prieview](imagine2.png)
 
-## 🚀 Tehnologii Utilizate
-- **Backend:** Java 21, Spring Boot 3
-- **Mesagerie:** Apache Kafka
-- **Baze de Date:** PostgreSQL (separate pentru Accounts și Transactions)
-- **Containerizare:** Docker & Docker Compose
-- **Frontend:** React.js (Axios pentru comunicare API)
-- **Notificări:** Integrare Mailtrap (SMTP)
 
-## 🛠️ Arhitectura Sistemului
-1. **Accounts Service:** Gestionează soldul și inițiază transferurile.
-2. **Transactions Service:** Ascultă evenimentele din Kafka și menține istoricul tranzacțiilor.
-3. **Logs Service:** Trimite confirmări prin email imediat ce un eveniment este detectat în Kafka.
+A complete distributed banking system built to demonstrate Event-Driven Architecture and asynchronous communication.
 
-## 📦 Pornirea Proiectului
-Asigurați-vă că aveți Docker instalat, apoi rulați:
+Technologies Used
+Backend: Java 21, Spring Boot 3
+Messaging: Apache Kafka
+Databases: PostgreSQL (separate for Accounts and Transactions)
+Containerization: Docker & Docker Compose
+Frontend: React.js (Axios for API communication)
+Notifications: Mailtrap Integration (SMTP)
+
+System Architecture
+Accounts Service: Manages balances and initiates transfers.
+Transactions Service: Listens to Kafka events and maintains the transaction history.
+Logs Service: Sends email confirmations as soon as an event is detected in Kafka.
 
 ```bash
 docker compose up --build
