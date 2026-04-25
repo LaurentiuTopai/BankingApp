@@ -32,6 +32,16 @@ public class AccountController {
             return new ResponseEntity<>((HttpHeaders) null,HttpStatus.BAD_REQUEST);
         }
     }
+    @GetMapping
+    public ResponseEntity<Account> showAccountDetails(@RequestParam String iban){
+        try{
+            Account toReturn = myAccountService.showAccount(iban);
+            return new ResponseEntity<>(toReturn,HttpStatus.OK);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
     @PostMapping("/transfer")
     public ResponseEntity<String> makeTransfer(@RequestBody TransferRequest myTransfer){
         try{

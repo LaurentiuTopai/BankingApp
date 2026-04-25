@@ -14,7 +14,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String iban;
 
     @Column(nullable = false)
@@ -28,6 +28,9 @@ public class Account {
 
     @Column(nullable = false)
     private Instant time;
+
+    @OneToOne(mappedBy = "account")
+    private User user;
 
     @PrePersist
     public void onCreate(){

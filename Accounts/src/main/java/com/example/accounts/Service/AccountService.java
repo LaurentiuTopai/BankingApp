@@ -9,6 +9,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -53,5 +54,10 @@ public class AccountService {
         String message = String.format("{\"fromIban\":\"%s\", \"toIban\":\"%s\", \"amount\":%s}",
                 iban1, iban2, amount);
         kafkaTemplate.send("transfer-topic",message);
+    }
+
+    public Account showAccount(String iban){
+       return myAccount.findAccountsByIban(iban).
+               orElseThrow(()->new RuntimeException("Contul cu iban-ul: "+iban +"nu exista"));
     }
 }

@@ -9,10 +9,11 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: BancarDB
     volumes:
+      - postgres-accounts:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
-      
+
   db-transactions:
     image: postgres:15
     container_name: transaction-db
@@ -20,6 +21,8 @@ services:
         POSTGRES_USER: myuser
         POSTGRES_PASSWORD: mypassword
         POSTGRES_DB: TransactionsDB
+    volumes:
+        - postgres-transactions:/var/lib/postgresql/data
     ports:
         - "5433:5432"
   zookeeper:
@@ -70,3 +73,17 @@ services:
       - "8083:8083"
     depends_on:
       - kafka
+
+volumes:
+  postgres-accounts:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/laurentiu/docker-volumes/postgres-accounts
+  postgres-transactions:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/laurentiu/docker-volumes/postgres-transactions
