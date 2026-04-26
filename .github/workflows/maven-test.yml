@@ -22,4 +22,5 @@ jobs:
         cache: maven
 
     - name: Rulează testele cu Maven
+      working-directory: ./Accounts
       run: mvn clean test
